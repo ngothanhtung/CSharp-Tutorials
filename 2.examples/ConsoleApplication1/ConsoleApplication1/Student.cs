@@ -67,6 +67,17 @@ namespace ConsoleApplication1
       }
 
       private int _score;
+      
+      /// <summary>
+      /// Điểm số với giá trị từ 0 đến 10
+      /// </summary>
+      /// <example>
+      /// s1.Score = 8;
+      /// </example>
+      /// <code>
+      /// s1.Score = 11; // Throws ArgumentOutOfRangeException
+      /// </code>
+      /// <exception cref="ArgumentOutOfRangeException"></exception>
       public int Score
       {
          set

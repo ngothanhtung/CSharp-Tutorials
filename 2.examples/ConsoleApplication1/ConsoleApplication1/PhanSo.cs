@@ -28,6 +28,11 @@ namespace ConsoleApplication1
             System.Console.WriteLine($"{this._TuSo} / {this._MauSo}");
         }
         
+        /// <summary>
+        /// Cộng hai phân số
+        /// </summary>
+        /// <param name="ps">Phân số cộng vào</param>
+        /// <returns>Phân số</returns>
         public PhanSo Cong(PhanSo ps)
         {
             PhanSo result = new PhanSo();

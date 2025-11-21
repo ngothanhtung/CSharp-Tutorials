@@ -7,11 +7,14 @@ namespace ConsoleApplication1
         public static void Main(string[] args)
         {
             
-            // var s1 = new Student();
-            // s1.Id = 1;
-            // s1.LoadFromTextFile();
-            // s1.Display();
-            //
+            var s1 = new Student();
+            s1.Id = 1;
+            s1.Score = 10;
+            s1.LoadFromTextFile();
+            s1.Display();
+            
+            s1.Score.to
+            
           
            
             //
@@ -38,7 +41,7 @@ namespace ConsoleApplication1
             
             ps2.HienThi();
 
-            var ps = ps1.Tru(ps2);
+            var ps = ps1.Cong(ps2);
             ps.HienThi();
 
             PhanSo psrg = ps.RutGon();
