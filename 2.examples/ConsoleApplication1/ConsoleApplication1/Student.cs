@@ -2,68 +2,19 @@ using System;
 
 namespace ConsoleApplication1
 {
-    public class Student
+    internal class Student : Person
     {
-        private int _id;
+        public static string SchoolName = "Softech Aptech";
 
-        // Encapsulated property for Id
-        public int Id
+
+        public Student()
         {
-            set { this._id = value; }
-            get { return this._id; }
+
         }
 
-
-        private string _name;
-
-        public string Name
+        public Student(int score)
         {
-            set { this._name = value; }
-            get { return this._name; }
-        }
-
-
-        private string _email;
-        public string Email
-        {
-            set
-            {
-                // Check email format (basic check)
-                if (!value.Contains("@") || !value.Contains("."))
-                {
-                    throw new ArgumentException("Invalid email format.");
-                }
-                this._email = value;
-            }
-            get { return this._email; }
-        }
-
-        private string _address;
-        public string Address
-        {
-            set { this._address = value; }
-            get { return this._address; }
-        }
-
-
-        private int _age;
-
-        // Encapsulated property for Age with validation
-        public int Age
-        {
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Age cannot be negative.");
-                }
-                if (value > 60)
-                {
-                    throw new ArgumentOutOfRangeException("Age seems invalid.");
-                }
-                this._age = value;
-            }
-            get { return this._age; }
+            this.Score = score;
         }
 
         private int _score;
@@ -91,40 +42,88 @@ namespace ConsoleApplication1
             get { return this._score; }
         }
 
-        public void Display()
-        {
-            Console.WriteLine("Id: " + this._id);
-            Console.WriteLine("Name: " + this._name);
-            Console.WriteLine("Email: " + this._email);
-            Console.WriteLine("Address: " + this._address);
-            Console.WriteLine("Age: " + this._age);
 
+
+        public string GetGrade()
+        {
+            var grade = "";
+
+            if (this._score >= 8)
+            {
+                grade = "A";
+            }
+            else if (this._score >= 6)
+            {
+                grade = "B";
+            }
+            else if (this._score >= 4)
+            {
+                grade = "C";
+            }
+            else
+            {
+                grade = "D";
+            }
+
+            return grade;
         }
 
-        public void SaveToTextFile()
+        //public void SaveToTextFile()
+        //{
+        //    using (var writer = new System.IO.StreamWriter(this._id.ToString() + ".txt"))
+        //    {
+        //        writer.WriteLine(this._id);
+        //        writer.WriteLine(this._name);
+        //        writer.WriteLine(this._email);
+        //        writer.WriteLine(this._address);
+        //        writer.WriteLine(this._age);
+        //        writer.WriteLine(this._score);
+        //    }
+        //}
+
+        //public void LoadFromTextFile()
+        //{
+        //    using (var reader = new System.IO.StreamReader(this._id.ToString() + ".txt"))
+        //    {
+        //        this._id = int.Parse(reader.ReadLine());
+        //        this._name = reader.ReadLine();
+        //        this._email = reader.ReadLine();
+        //        this._address = reader.ReadLine();
+        //        this._age = int.Parse(reader.ReadLine());
+        //        this._score = int.Parse(reader.ReadLine());
+        //    }
+        //}
+
+        public new void Display()
         {
-            using (var writer = new System.IO.StreamWriter(this._id.ToString() + ".txt"))
-            {
-                writer.WriteLine(this._id);
-                writer.WriteLine(this._name);
-                writer.WriteLine(this._email);
-                writer.WriteLine(this._address);
-                writer.WriteLine(this._age);
-                writer.WriteLine(this._score);
-            }
+            base.Display();
+            Console.WriteLine("Score: " + this._score);
         }
 
-        public void LoadFromTextFile()
+
+        private void SecrectMethod()
         {
-            using (var reader = new System.IO.StreamReader(this._id.ToString() + ".txt"))
-            {
-                this._id = int.Parse(reader.ReadLine());
-                this._name = reader.ReadLine();
-                this._email = reader.ReadLine();
-                this._address = reader.ReadLine();
-                this._age = int.Parse(reader.ReadLine());
-                this._score = int.Parse(reader.ReadLine());
-            }
+            Console.WriteLine("This is a secret method.");
+        }
+
+        protected void ProtectedMethod()
+        {
+            Console.WriteLine("This is a protected method.");
+        }
+
+
+        public void Swap2Number(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        public void Calculate(ref int a, ref int b)
+        {
+            a = 10;
+            b = 20;
+            Console.WriteLine("Inside Calculate method: a = " + a + ", b = " + b);
         }
     }
 }

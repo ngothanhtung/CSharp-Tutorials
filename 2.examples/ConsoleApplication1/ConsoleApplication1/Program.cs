@@ -7,9 +7,32 @@ namespace ConsoleApplication1
 
             //var s1 = new Student();
             //s1.Id = 1;
+            //s1.Name = "John Doe";
             //s1.Score = 10;
-            //s1.LoadFromTextFile();
+
             //s1.Display();
+
+
+
+
+
+            var t1 = new Teacher();
+            t1.Id = 101;
+            t1.Name = "Mr. Smith";
+            t1.Skill = "Mathematics";
+            t1.Display();
+
+
+            //int a = 5;
+            //int b = 15;
+
+            //s1.Calculate(ref a, ref b);
+
+            //Console.WriteLine("a: " + a);
+            //Console.WriteLine("b: " + b);
+
+            //Console.WriteLine("Grade: " + grade);
+            //s1.Display1("STUDENT INFORMATION", Student.SchoolName);
 
             //
             // var s2 = new Student();
@@ -45,7 +68,7 @@ namespace ConsoleApplication1
             //BaiTap_Chuong_03_01.Run();
             //BaiTap_Chuong_03_02.Run();
             //BaiTap_Chuong_03_03.Run();
-            BaiTap_Chuong_03_03_02.Run();
+            //BaiTap_Chuong_03_03_02.Run();
         }
     }
 }
