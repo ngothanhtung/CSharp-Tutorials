@@ -4,6 +4,7 @@ namespace ConsoleApplication1.Quiz
 {
     internal class OneChoiceQuestion : Question
     {
+        public static string QuestionType = "One Choise Question";
         public string Option1 { get; set; }
         public string Option2 { get; set; }
         public string Option3 { get; set; }

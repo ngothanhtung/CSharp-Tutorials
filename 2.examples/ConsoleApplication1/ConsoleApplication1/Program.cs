@@ -1,4 +1,6 @@
-﻿using ConsoleApplication1.Quiz;
+﻿using ConsoleApplication1.Math;
+using ConsoleApplication1.Quiz;
+using System;
 
 namespace ConsoleApplication1
 {
@@ -33,7 +35,7 @@ namespace ConsoleApplication1
             //Console.WriteLine("a: " + a);
             //Console.WriteLine("b: " + b);
 
-            //Console.WriteLine("Grade: " + grade);
+            Console.WriteLine("Grade: " + grade);
             //s1.Display1("STUDENT INFORMATION", Student.SchoolName);
 
             //
@@ -48,9 +50,9 @@ namespace ConsoleApplication1
             //
             // s2.Display();
 
-            //var ps1 = new PhanSo();
-            //ps1.TuSo = 3;
-            //ps1.MauSo = 4;
+            var ps1 = new PhanSo();
+            ps1.TuSo = 3;
+            ps1.MauSo = 4;
 
             //ps1.HienThi();
 
@@ -93,6 +95,7 @@ namespace ConsoleApplication1
 
             for (int i = 1; i <= 5; i++)
             {
+
                 if (i % 2 == 0)
                 {
                     // Fill in the blank question
@@ -121,7 +124,14 @@ namespace ConsoleApplication1
             //q2.LoadDataFromFile("2.txt");
             //q2.Display();
 
-
+            var q3 = new OneChoiceQuestion
+            {
+                QuestionContent = "Môn học nào sau đây không phải là môn khoa học tự nhiên?",
+                Option1 = "Vật lý",
+                Option2 = "Hóa học",
+                Option3 = "Sinh học",
+                Option4 = "Lịch sử",
+            };
         }
     }
 }

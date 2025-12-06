@@ -46,10 +46,11 @@
     <Compile Include="BaiTap_Chuong_03_02.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PhanSo.cs" />
+    <Compile Include="Math\PhanSo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quiz\FillInTheBlankQuestion.cs" />
+    <Compile Include="Quiz\IQuestion.cs" />
     <Compile Include="Quiz\ManyChoiceQuestion.cs" />
     <Compile Include="Quiz\OneChoiceQuestion.cs" />
     <Compile Include="Quiz\Question.cs" />

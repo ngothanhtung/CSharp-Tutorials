@@ -1,4 +1,4 @@
-namespace ConsoleApplication1
+namespace ConsoleApplication1.Math
 {
     public class PhanSo
     {
@@ -8,7 +8,7 @@ namespace ConsoleApplication1
             set { this._TuSo = value; }
             get { return this._TuSo; }
         }
-        
+
         private int _MauSo;
         public int MauSo
         {
@@ -22,12 +22,12 @@ namespace ConsoleApplication1
             }
             get { return this._MauSo; }
         }
-        
+
         public void HienThi()
         {
             System.Console.WriteLine($"{this._TuSo} / {this._MauSo}");
         }
-        
+
         /// <summary>
         /// Cộng hai phân số
         /// </summary>
@@ -40,7 +40,7 @@ namespace ConsoleApplication1
             result.MauSo = this.MauSo * ps.MauSo;
             return result;
         }
-        
+
         public PhanSo Tru(PhanSo ps)
         {
             PhanSo result = new PhanSo();
@@ -48,7 +48,7 @@ namespace ConsoleApplication1
             result.MauSo = this.MauSo * ps.MauSo;
             return result;
         }
-        
+
         public PhanSo Nhan(PhanSo ps)
         {
             PhanSo result = new PhanSo();
@@ -56,7 +56,7 @@ namespace ConsoleApplication1
             result.MauSo = this.MauSo * ps.MauSo;
             return result;
         }
-        
+
         public PhanSo Chia(PhanSo ps)
         {
             PhanSo result = new PhanSo();
@@ -64,7 +64,7 @@ namespace ConsoleApplication1
             result.MauSo = this.MauSo * ps.TuSo;
             return result;
         }
-        
+
         public PhanSo RutGon()
         {
             int a = this.TuSo;
@@ -76,7 +76,7 @@ namespace ConsoleApplication1
                 a = temp;
             }
             int gcd = a;
-            
+
             PhanSo result = new PhanSo();
             result.TuSo = this.TuSo / gcd;
             result.MauSo = this.MauSo / gcd;
