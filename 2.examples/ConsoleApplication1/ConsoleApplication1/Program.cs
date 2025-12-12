@@ -1,6 +1,5 @@
 ﻿using ConsoleApplication1.Math;
 using ConsoleApplication1.Quiz;
-using System;
 
 namespace ConsoleApplication1
 {
@@ -35,7 +34,7 @@ namespace ConsoleApplication1
             //Console.WriteLine("a: " + a);
             //Console.WriteLine("b: " + b);
 
-            Console.WriteLine("Grade: " + grade);
+            //Console.WriteLine("Grade: " + grade);
             //s1.Display1("STUDENT INFORMATION", Student.SchoolName);
 
             //

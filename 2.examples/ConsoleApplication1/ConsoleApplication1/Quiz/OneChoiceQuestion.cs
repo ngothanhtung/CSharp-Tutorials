@@ -4,12 +4,17 @@ namespace ConsoleApplication1.Quiz
 {
     internal class OneChoiceQuestion : Question
     {
-        public static string QuestionType = "One Choise Question";
+        public static string QuestionType = "OneChoiceQuestion";
         public string Option1 { get; set; }
         public string Option2 { get; set; }
         public string Option3 { get; set; }
         public string Option4 { get; set; }
 
+
+        public override bool CheckAnswer(string answer)
+        {
+            return this.CorrectAnswer == answer;
+        }
 
         public override void Display()
         {
@@ -26,28 +31,21 @@ namespace ConsoleApplication1.Quiz
             Console.Write("Please enter your option: ");
             var answer = Console.ReadLine();
 
-            if (answer == this.CorrectAnswer)
+            if (this.CheckAnswer(answer))
             {
-                System.Console.WriteLine("------------------------------------");
                 System.Console.WriteLine("Congratulations! Your answer is correct");
-                System.Console.WriteLine("------------------------------------");
             }
             else
             {
-                System.Console.WriteLine("------------------------------------");
                 System.Console.WriteLine("Sorry! Your answer is incorrect");
-                System.Console.WriteLine("------------------------------------");
             }
         }
 
         public override void SaveDataToFile(string filename)
         {
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine("Question: " + QuestionContent);
-            System.Console.WriteLine("------------------------------------");
-
             using (var writer = new System.IO.StreamWriter(filename))
             {
+                writer.WriteLine(OneChoiceQuestion.QuestionType);
                 writer.WriteLine(this.QuestionContent);
                 writer.WriteLine(this.Option1);
                 writer.WriteLine(this.Option2);
@@ -61,6 +59,12 @@ namespace ConsoleApplication1.Quiz
         {
             using (var reader = new System.IO.StreamReader(filename))
             {
+                var questionType = reader.ReadLine();
+                if (questionType != OneChoiceQuestion.QuestionType)
+                {
+                    throw new Exception("Question type mismatch");
+                }
+
                 this.QuestionContent = reader.ReadLine();
                 this.Option1 = reader.ReadLine();
                 this.Option2 = reader.ReadLine();
@@ -69,7 +73,5 @@ namespace ConsoleApplication1.Quiz
                 this.CorrectAnswer = reader.ReadLine();
             }
         }
-
-
     }
 }
