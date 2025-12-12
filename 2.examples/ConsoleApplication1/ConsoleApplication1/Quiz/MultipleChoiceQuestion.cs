@@ -2,7 +2,7 @@
 
 namespace ConsoleApplication1.Quiz
 {
-    internal class ManyChoiceQuestion : Question
+    internal class MultipleChoiceQuestion : Question
     {
         public string Option1 { get; set; }
         public string Option2 { get; set; }
@@ -12,30 +12,30 @@ namespace ConsoleApplication1.Quiz
 
         public override void Display()
         {
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine(QuestionContent);
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine("Let's choose a correct answer:");
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine("A. " + Option1);
-            System.Console.WriteLine("B. " + Option2);
-            System.Console.WriteLine("C. " + Option3);
-            System.Console.WriteLine("D. " + Option4);
-            System.Console.WriteLine("------------------------------------");
-            Console.Write("Please enter your option: ");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine(QuestionContent);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Let's choose a correct answer:");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("A. " + Option1);
+            Console.WriteLine("B. " + Option2);
+            Console.WriteLine("C. " + Option3);
+            Console.WriteLine("D. " + Option4);
+            Console.WriteLine("------------------------------------");
+            Console.Write("Please enter your options: ");
             var answer = Console.ReadLine();
 
             if (answer == this.CorrectAnswer)
             {
-                System.Console.WriteLine("------------------------------------");
-                System.Console.WriteLine("Congratulations! Your answer is correct");
-                System.Console.WriteLine("------------------------------------");
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine("Congratulations! Your answer is correct");
+                Console.WriteLine("------------------------------------");
             }
             else
             {
-                System.Console.WriteLine("------------------------------------");
-                System.Console.WriteLine("Sorry! Your answer is incorrect");
-                System.Console.WriteLine("------------------------------------");
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine("Sorry! Your answer is incorrect");
+                Console.WriteLine("------------------------------------");
             }
         }
 

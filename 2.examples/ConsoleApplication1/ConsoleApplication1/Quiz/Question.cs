@@ -2,22 +2,11 @@
 {
     internal abstract class Question : IQuestion
     {
-
-
-
         public string QuestionContent { get; set; }
 
-        public string CorrectAnswer
-        {
-            get;
-            set;
-        }
+        public string CorrectAnswer { get; set; }
 
-
-        public bool CheckAnswer(string answer)
-        {
-            return answer.Equals(CorrectAnswer, System.StringComparison.OrdinalIgnoreCase);
-        }
+        public abstract bool CheckAnswer(string answer);
 
         public abstract void Display();
 

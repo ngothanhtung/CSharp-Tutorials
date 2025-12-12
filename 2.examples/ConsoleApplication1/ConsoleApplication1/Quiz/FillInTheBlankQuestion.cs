@@ -4,6 +4,11 @@ namespace ConsoleApplication1.Quiz
 {
     internal class FillInTheBlankQuestion : Question
     {
+        public override bool CheckAnswer(string answer)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void Display()
         {
             System.Console.WriteLine("------------------------------------");

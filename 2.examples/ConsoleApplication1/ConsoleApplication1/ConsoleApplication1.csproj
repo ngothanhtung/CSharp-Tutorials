@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quiz\FillInTheBlankQuestion.cs" />
     <Compile Include="Quiz\IQuestion.cs" />
-    <Compile Include="Quiz\ManyChoiceQuestion.cs" />
+    <Compile Include="Quiz\MultipleChoiceQuestion.cs" />
     <Compile Include="Quiz\OneChoiceQuestion.cs" />
     <Compile Include="Quiz\Question.cs" />
     <Compile Include="Student.cs" />
