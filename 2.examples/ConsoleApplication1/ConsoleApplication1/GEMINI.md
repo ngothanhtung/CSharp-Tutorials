@@ -1,4 +1,7 @@
-﻿# LẤY GEMINI - API KEY
+﻿# GitHub:
+> https://github.com/ngothanhtung/CSharp-Tutorials
+
+# LẤY GEMINI - API KEY
 - Truy cập: https://aistudio.google.com/app/apikey
 - Đăng nhập bằng Google Account
 - Click "Create API Key"

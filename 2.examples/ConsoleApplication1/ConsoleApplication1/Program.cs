@@ -1,5 +1,6 @@
-﻿using ConsoleApplication1.Math;
-using ConsoleApplication1.Quiz;
+﻿using ConsoleApplication1.Quiz;
+using System;
+using System.Text;
 
 namespace ConsoleApplication1
 {
@@ -7,6 +8,9 @@ namespace ConsoleApplication1
     {
         public static void Main(string[] args)
         {
+            // Set console encoding to UTF-8 for proper Vietnamese character display
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
 
             //var s1 = new Student();
             //s1.Id = 1;
@@ -49,9 +53,9 @@ namespace ConsoleApplication1
             //
             // s2.Display();
 
-            var ps1 = new PhanSo();
-            ps1.TuSo = 3;
-            ps1.MauSo = 4;
+            //var ps1 = new PhanSo();
+            //ps1.TuSo = 3;
+            //ps1.MauSo = 4;
 
             //ps1.HienThi();
 
@@ -88,28 +92,28 @@ namespace ConsoleApplication1
 
 
 
-            Question q;
+            //Question q;
 
-            int index = 1;
+            //int index = 1;
 
-            for (int i = 1; i <= 5; i++)
-            {
+            //for (int i = 1; i <= 5; i++)
+            //{
 
-                if (i % 2 == 0)
-                {
-                    // Fill in the blank question
-                    q = new FillInTheBlankQuestion();
-                    q.LoadDataFromFile(i + ".txt");
-                    q.Display();
-                }
-                else
-                {
-                    // One choice question
-                    q = new OneChoiceQuestion();
-                    q.LoadDataFromFile(i + ".txt");
-                    q.Display();
-                }
-            }
+            //    if (i % 2 == 0)
+            //    {
+            //        // Fill in the blank question
+            //        q = new FillInTheBlankQuestion();
+            //        q.LoadDataFromFile(i + ".txt");
+            //        q.Display();
+            //    }
+            //    else
+            //    {
+            //        // One choice question
+            //        q = new OneChoiceQuestion();
+            //        q.LoadDataFromFile(i + ".txt");
+            //        q.Display();
+            //    }
+            //}
 
 
             //q = new OneChoiceQuestion(); 
@@ -123,14 +127,20 @@ namespace ConsoleApplication1
             //q2.LoadDataFromFile("2.txt");
             //q2.Display();
 
-            var q3 = new OneChoiceQuestion
-            {
-                QuestionContent = "Môn học nào sau đây không phải là môn khoa học tự nhiên?",
-                Option1 = "Vật lý",
-                Option2 = "Hóa học",
-                Option3 = "Sinh học",
-                Option4 = "Lịch sử",
-            };
+            //var q3 = new OneChoiceQuestion
+            //{
+            //    QuestionContent = "Môn học nào sau đây không phải là môn khoa học tự nhiên?",
+            //    Option1 = "Vật lý",
+            //    Option2 = "Hóa học",
+            //    Option3 = "Sinh học",
+            //    Option4 = "Lịch sử",
+            //};
+
+            var gemini = new GeminiService();
+
+            var result = gemini.Grade("Văn học", "Tác phẩm Lão Hạc của nhà văn nào? A.Tố Hữu, B.Name Cao, C. Xuân Diệu. Và câu trả lời của học sinh là: C", "Giải thích vai trò từng tác giả");
+
+            Console.WriteLine(result);
         }
     }
 }
