@@ -136,11 +136,22 @@ namespace ConsoleApplication1
             //    Option4 = "Lịch sử",
             //};
 
-            var gemini = new GeminiService();
+            //var gemini = new GeminiService();
 
-            var result = gemini.Grade("Văn học", "Tác phẩm Lão Hạc của nhà văn nào? A.Tố Hữu, B.Name Cao, C. Xuân Diệu. Và câu trả lời của học sinh là: C", "Giải thích vai trò từng tác giả");
+            //var result = gemini.Grade("Văn học", "Tác phẩm Lão Hạc của nhà văn nào? A.Tố Hữu, B.Name Cao, C. Xuân Diệu. Và câu trả lời của học sinh là: C", "Giải thích vai trò từng tác giả");
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
+
+
+            //var question = new OneChoiceQuestion();
+
+            //question.LoadDataFromDatabase(new Guid("ec413690-d9d1-472e-90fa-2de153037456"));
+            //question.Display();
+
+            var exam = new Examination();
+
+            exam.Start(new Guid("CA4FE52D-487C-4984-95E5-436E6837A227"));
+
         }
     }
 }

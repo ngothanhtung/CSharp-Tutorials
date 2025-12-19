@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 
 namespace ConsoleApplication1.Quiz
 {
@@ -52,6 +53,48 @@ namespace ConsoleApplication1.Quiz
                 this.QuestionContent = reader.ReadLine();
                 this.CorrectAnswer = reader.ReadLine();
             }
+        }
+
+        public override void SaveDataToDatabase()
+        {
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;";
+            var sqlConnection = new SqlConnection(connectionString);
+
+            const string sql = "INSERT INTO Questions(QuestionContent, CorrectAnswer, Option1, Option2, Option3, Option4) VALUES(@QuestionContent, @CorrectAnswer, @Option1, @Option2, @Option3, @Option4)";
+            var sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@QuestionContent", this.QuestionContent);
+            sqlCommand.Parameters.AddWithValue("@CorrectAnswer", this.CorrectAnswer);
+
+            sqlCommand.Parameters.AddWithValue("@QuestionType", "FillInTheBlankQuestion");
+
+            sqlConnection.Open();
+            var rowAffected = sqlCommand.ExecuteNonQuery();
+            Console.WriteLine("Rows affected: " + rowAffected);
+
+            sqlConnection.Close();
+        }
+
+        public override void LoadDataFromDatabase(Guid id)
+        {
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;";
+            var sqlConnection = new SqlConnection(connectionString);
+
+            const string sql = "SELECT * FROM Questions WHERE Id = @Id";
+            var sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@Id", id);
+
+            sqlConnection.Open();
+            var reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                this.Id = (Guid)reader["Id"];
+                this.QuestionContent = (string)reader["QuestionContent"];
+                this.CorrectAnswer = (string)reader["CorrectAnswer"];
+
+                this.QuestionType = (string)reader["QuestionType"];
+            }
+
+            sqlConnection.Close();
         }
     }
 }

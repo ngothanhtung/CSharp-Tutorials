@@ -74,6 +74,14 @@ namespace ConsoleApplication1.Quiz
             }
         }
 
+        public override void SaveDataToDatabase()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override void LoadDataFromDatabase(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
