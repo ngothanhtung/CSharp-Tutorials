@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace ConsoleApplication1.Quiz
+namespace QuizLibrary
 {
     public class GeminiService
     {

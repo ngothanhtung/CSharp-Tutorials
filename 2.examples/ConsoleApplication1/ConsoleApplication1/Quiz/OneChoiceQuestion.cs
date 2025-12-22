@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ConsoleApplication1.Quiz
 {
-    internal class OneChoiceQuestion : Question
+    public class OneChoiceQuestion : Question
     {
         public string Option1 { get; set; }
         public string Option2 { get; set; }

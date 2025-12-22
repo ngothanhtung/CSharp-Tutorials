@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 
-namespace ConsoleApplication1.Quiz
+namespace QuizLibrary
 {
     public class Examination
     {
-        public IList<Question> GetQuestions(Guid id)
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public int Duration { get; set; }
+
+
+        public static IList<Question> GetQuestions(Guid id)
         {
             var questions = new List<Question>();
 
-            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;";
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;Encrypt=True;TrustServerCertificate=True;";
             var sqlConnection = new SqlConnection(connectionString);
 
             try
@@ -62,9 +65,36 @@ namespace ConsoleApplication1.Quiz
             return questions;
         }
 
+        public static IList<Examination> GetAllExaminations()
+        {
+            var examinations = new List<Examination>();
+
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;Encrypt=True;TrustServerCertificate=True;";
+            var sqlConnection = new SqlConnection(connectionString);
+
+            const string sql = "SELECT * FROM Examinations";
+            var sqlCommand = new SqlCommand(sql, sqlConnection);
+
+            sqlConnection.Open();
+            var reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                var examination = new Examination();
+                examination.Id = (Guid)reader["Id"];
+                examination.Name = (string)reader["Name"];
+                examination.Duration = (int)reader["Duration"];
+
+                examinations.Add(examination);
+            }
+
+            sqlConnection.Close();
+
+            return examinations;
+        }
+
         public void Start(Guid id)
         {
-            var questions = this.GetQuestions(id);
+            var questions = Examination.GetQuestions(id);
 
             Console.WriteLine("====================================================================");
             Console.WriteLine("                        Welcome to the Quiz!                       ");

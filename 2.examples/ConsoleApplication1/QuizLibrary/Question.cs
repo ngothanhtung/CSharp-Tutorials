@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ConsoleApplication1.Quiz
+﻿namespace QuizLibrary
 {
     public abstract class Question : IQuestion
     {

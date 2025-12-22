@@ -1,7 +1,6 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 
-namespace ConsoleApplication1.Quiz
+namespace QuizLibrary
 {
     public class FillInTheBlankQuestion : Question
     {
@@ -57,10 +56,10 @@ namespace ConsoleApplication1.Quiz
 
         public override void SaveDataToDatabase()
         {
-            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;";
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;Encrypt=True;TrustServerCertificate=True;";
             var sqlConnection = new SqlConnection(connectionString);
 
-            const string sql = "INSERT INTO Questions(QuestionContent, CorrectAnswer) VALUES(@QuestionContent, @CorrectAnswer)";
+            const string sql = "INSERT INTO Questions(QuestionContent, CorrectAnswer, QuestionType) VALUES(@QuestionContent, @CorrectAnswer, @QuestionType)";
             var sqlCommand = new SqlCommand(sql, sqlConnection);
             sqlCommand.Parameters.AddWithValue("@QuestionContent", this.QuestionContent);
             sqlCommand.Parameters.AddWithValue("@CorrectAnswer", this.CorrectAnswer);
@@ -76,7 +75,7 @@ namespace ConsoleApplication1.Quiz
 
         public override void LoadDataFromDatabase(Guid id)
         {
-            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;";
+            const string connectionString = "server=server.softech.cloud;database=Quiz;user=developer;password=123456789;Encrypt=True;TrustServerCertificate=True;";
             var sqlConnection = new SqlConnection(connectionString);
 
             const string sql = "SELECT * FROM Questions WHERE Id = @Id";
