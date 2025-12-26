@@ -1,11 +1,19 @@
-﻿using ConsoleApplication1.Quiz;
-using System;
+﻿using System;
 using System.Text;
 
 namespace ConsoleApplication1
 {
     internal static class Program
     {
+        static int Addition(int numOne, int numTwo)
+        {
+            return (numOne + numTwo);
+        }
+        static int Subtraction(int numOne, int numTwo)
+        {
+            return (numOne - numTwo);
+        }
+
         public static void Main(string[] args)
         {
             // Set console encoding to UTF-8 for proper Vietnamese character display
@@ -148,9 +156,17 @@ namespace ConsoleApplication1
             //question.LoadDataFromDatabase(new Guid("ec413690-d9d1-472e-90fa-2de153037456"));
             //question.Display();
 
-            var exam = new Examination();
+            //var exam = new Examination();
 
-            exam.Start(new Guid("CA4FE52D-487C-4984-95E5-436E6837A227"));
+            //exam.Start(new Guid("CA4FE52D-487C-4984-95E5-436E6837A227"));
+
+            //const int valOne = 5;
+            //const int valTwo = 23;
+            //var objCalculation = new Calculation(Addition);
+            //Console.WriteLine(valOne + " + " + valTwo + " = " + objCalculation(valOne, valTwo));
+
+
+
 
         }
     }

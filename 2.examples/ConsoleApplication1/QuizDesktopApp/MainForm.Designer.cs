@@ -31,6 +31,11 @@
             buttonOpenOneChoiceQuestionForm = new Button();
             buttonOpenFillInTheBlankQuestionForm = new Button();
             buttonOpenExaminationsForm = new Button();
+            buttonCreateStudent = new Button();
+            buttonUpdateStudent = new Button();
+            buttonDeleteStudent = new Button();
+            buttonGetStudents = new Button();
+            buttonCreateBook = new Button();
             SuspendLayout();
             // 
             // buttonOpenOneChoiceQuestionForm
@@ -63,11 +68,66 @@
             buttonOpenExaminationsForm.UseVisualStyleBackColor = true;
             buttonOpenExaminationsForm.Click += buttonOpenExaminationsForm_Click;
             // 
+            // buttonCreateStudent
+            // 
+            buttonCreateStudent.Location = new Point(12, 353);
+            buttonCreateStudent.Name = "buttonCreateStudent";
+            buttonCreateStudent.Size = new Size(135, 23);
+            buttonCreateStudent.TabIndex = 8;
+            buttonCreateStudent.Text = "Create Student";
+            buttonCreateStudent.UseVisualStyleBackColor = true;
+            buttonCreateStudent.Click += buttonCreateStudent_Click;
+            // 
+            // buttonUpdateStudent
+            // 
+            buttonUpdateStudent.Location = new Point(153, 353);
+            buttonUpdateStudent.Name = "buttonUpdateStudent";
+            buttonUpdateStudent.Size = new Size(135, 23);
+            buttonUpdateStudent.TabIndex = 9;
+            buttonUpdateStudent.Text = "Update Student";
+            buttonUpdateStudent.UseVisualStyleBackColor = true;
+            buttonUpdateStudent.Click += buttonUpdateStudent_Click;
+            // 
+            // buttonDeleteStudent
+            // 
+            buttonDeleteStudent.Location = new Point(294, 353);
+            buttonDeleteStudent.Name = "buttonDeleteStudent";
+            buttonDeleteStudent.Size = new Size(135, 23);
+            buttonDeleteStudent.TabIndex = 10;
+            buttonDeleteStudent.Text = "Delete Student";
+            buttonDeleteStudent.UseVisualStyleBackColor = true;
+            buttonDeleteStudent.Click += buttonDeleteStudent_Click;
+            // 
+            // buttonGetStudents
+            // 
+            buttonGetStudents.Location = new Point(435, 353);
+            buttonGetStudents.Name = "buttonGetStudents";
+            buttonGetStudents.Size = new Size(159, 23);
+            buttonGetStudents.TabIndex = 11;
+            buttonGetStudents.Text = "Get Students";
+            buttonGetStudents.UseVisualStyleBackColor = true;
+            buttonGetStudents.Click += buttonGetStudents_Click;
+            // 
+            // buttonCreateBook
+            // 
+            buttonCreateBook.Location = new Point(12, 300);
+            buttonCreateBook.Name = "buttonCreateBook";
+            buttonCreateBook.Size = new Size(135, 23);
+            buttonCreateBook.TabIndex = 12;
+            buttonCreateBook.Text = "Create Book";
+            buttonCreateBook.UseVisualStyleBackColor = true;
+            buttonCreateBook.Click += buttonCreateBook_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(679, 388);
+            Controls.Add(buttonCreateBook);
+            Controls.Add(buttonGetStudents);
+            Controls.Add(buttonDeleteStudent);
+            Controls.Add(buttonUpdateStudent);
+            Controls.Add(buttonCreateStudent);
             Controls.Add(buttonOpenExaminationsForm);
             Controls.Add(buttonOpenFillInTheBlankQuestionForm);
             Controls.Add(buttonOpenOneChoiceQuestionForm);
@@ -80,5 +140,10 @@
         private Button buttonOpenOneChoiceQuestionForm;
         private Button buttonOpenFillInTheBlankQuestionForm;
         private Button buttonOpenExaminationsForm;
+        private Button buttonCreateStudent;
+        private Button buttonUpdateStudent;
+        private Button buttonDeleteStudent;
+        private Button buttonGetStudents;
+        private Button buttonCreateBook;
     }
 }

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkQuizLibrary\EntityFrameworkQuizLibrary.csproj" />
     <ProjectReference Include="..\QuizLibrary\QuizLibrary.csproj" />
   </ItemGroup>
 
