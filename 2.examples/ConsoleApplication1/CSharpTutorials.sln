@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkQuizLibrary"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApi", "QuizApi\QuizApi.csproj", "{A268748A-4C1B-4562-B72B-70D233962543}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Data", "OnlineShop.Data\OnlineShop.Data.csproj", "{DB50F7B2-DF8D-4263-8EF5-D5159810AFA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopApi", "OnlineShopApi\OnlineShopApi.csproj", "{3CA26583-F5E5-4202-858E-C65111C3FD6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{A268748A-4C1B-4562-B72B-70D233962543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A268748A-4C1B-4562-B72B-70D233962543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A268748A-4C1B-4562-B72B-70D233962543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB50F7B2-DF8D-4263-8EF5-D5159810AFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB50F7B2-DF8D-4263-8EF5-D5159810AFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB50F7B2-DF8D-4263-8EF5-D5159810AFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB50F7B2-DF8D-4263-8EF5-D5159810AFA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA26583-F5E5-4202-858E-C65111C3FD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA26583-F5E5-4202-858E-C65111C3FD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA26583-F5E5-4202-858E-C65111C3FD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA26583-F5E5-4202-858E-C65111C3FD6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

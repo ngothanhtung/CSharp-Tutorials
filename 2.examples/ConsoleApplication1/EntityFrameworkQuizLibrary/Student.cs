@@ -1,7 +1,10 @@
-﻿namespace EntityFrameworkQuizLibrary
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EntityFrameworkQuizLibrary
 {
     public class Student
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public int Age { get; set; }
