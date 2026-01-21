@@ -5,7 +5,7 @@ namespace QuizApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class StudentController : Controller
+    public class StudentController : ControllerBase
     {
 
         [HttpGet]
