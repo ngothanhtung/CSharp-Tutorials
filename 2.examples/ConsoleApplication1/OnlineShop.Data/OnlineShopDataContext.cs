@@ -102,7 +102,7 @@ namespace OnlineShop.Data
                 .HasOne<Order>(od => od.Order)
                 .WithMany(o => o.OrderDetails)
                 .HasForeignKey(od => od.OrderId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             // Product - OrderDetail : One to Many
             modelBuilder.Entity<OrderDetail>()

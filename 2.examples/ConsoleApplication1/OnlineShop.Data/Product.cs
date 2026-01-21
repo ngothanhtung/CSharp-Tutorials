@@ -1,15 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Data
 {
     [Table("Products")]
     public class Product
     {
-        [Key]
         public int Id { get; set; }
 
-        [StringLength(100)]
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
 
@@ -28,6 +25,6 @@ namespace OnlineShop.Data
 
         public Supplier? Supplier { get; set; }
 
-        public IList<OrderDetail> OrderDetails { get; set; }
+        public IList<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }
