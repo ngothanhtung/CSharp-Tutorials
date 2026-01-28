@@ -1,19 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace OnlineShop.Data
+﻿namespace OnlineShop.Data
 {
     public class Supplier
     {
-        public Supplier()
-        {
-            Products = new List<Product>();
-        }
-
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-        public IList<Product> Products { get; set; }
+        public IList<Product> Products { get; set; } = new List<Product>();
     }
 }

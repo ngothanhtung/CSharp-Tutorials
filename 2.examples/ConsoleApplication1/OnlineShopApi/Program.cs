@@ -1,11 +1,18 @@
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineShop.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// ✅ THÊM ĐOẠN NÀY: Đăng ký DbContext
+builder.Services.AddDbContext<OnlineShopDataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 // Add services to the container.
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.ReferenceHandler =
-        System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
