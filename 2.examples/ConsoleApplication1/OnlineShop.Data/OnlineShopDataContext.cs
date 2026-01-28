@@ -5,8 +5,7 @@ namespace OnlineShop.Data
     public class OnlineShopDataContext : DbContext
     {
         // ✅ THÊM constructor này để nhận configuration từ DI
-        public OnlineShopDataContext(DbContextOptions<OnlineShopDataContext> options)
-            : base(options)
+        public OnlineShopDataContext(DbContextOptions<OnlineShopDataContext> options) : base(options)
         {
         }
 
@@ -16,11 +15,14 @@ namespace OnlineShop.Data
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("server=server.softech.cloud;database=OnlineShopEF;user=developer;password=123456789;Encrypt=True;TrustServerCertificate=True;");
-        //}
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

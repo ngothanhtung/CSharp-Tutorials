@@ -27,6 +27,6 @@ namespace OnlineShopApi.Models
         public required int SupplierId { get; set; }
 
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }

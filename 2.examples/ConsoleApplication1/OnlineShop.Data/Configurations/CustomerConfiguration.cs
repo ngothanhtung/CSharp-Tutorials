@@ -8,7 +8,11 @@ namespace OnlineShop.Data.Configurations
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
             // Mapping to "Customers" table
-            builder.ToTable("Customers");
+            builder.ToTable("Customers", tb =>
+            {
+                // Birthday >= 18 years constraint
+                tb.HasCheckConstraint("CK_Customers_Birthday", "YEAR(Birthday) <= YEAR(GETDATE()) - 18 OR Birthday IS NULL");
+            });
 
             // Primary Key
             builder.HasKey(c => c.Id);
@@ -40,7 +44,7 @@ namespace OnlineShop.Data.Configurations
             // Address
             builder.Property(c => c.Address)
                 .IsRequired() // Not null
-                .HasMaxLength(500); // Max length 50
+                .HasMaxLength(500); // Max length 500
 
 
             // Birthday
