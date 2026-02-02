@@ -10,8 +10,8 @@ namespace OnlineShop.Data.Configurations
             // Map to "Orders" table
             builder.ToTable("Orders", tb =>
             {
-                // ShippedDate >= OrderDate constraint
-                tb.HasCheckConstraint("CK_Orders_ShippedDate_OrderDate", "[ShippedDate] >= [OrderDate]");
+                // ShippedDate >= CreatedDate constraint
+                tb.HasCheckConstraint("CK_Orders_ShippedDate_CreatedDate", "[ShippedDate] >= [CreatedDate]");
 
                 // Status allowed values constraint
                 tb.HasCheckConstraint("CK_Orders_Status", "[Status]='CANCELED' OR [Status]='COMPLETED' OR [Status]='WAITING'");
@@ -24,7 +24,7 @@ namespace OnlineShop.Data.Configurations
             builder.HasKey(o => o.Id);
 
             // Default value for OrderDate
-            builder.Property(o => o.OrderDate)
+            builder.Property(o => o.CreatedDate)
                    .HasDefaultValueSql("GETDATE()");
 
             // Relationship between Order and Customer
