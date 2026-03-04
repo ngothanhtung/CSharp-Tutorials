@@ -7,20 +7,17 @@ namespace OnlineShopApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProductsController : ControllerBase
+public class ProductsController(OnlineShopDataContext context) : ControllerBase
 {
     // Khai báo context 1 lần và dùng chung cho các methods / requests
-    private readonly OnlineShopDataContext _context;
-    public ProductsController(OnlineShopDataContext context)
-    {
-        _context = context;
-    }
 
     // GET
     [HttpGet]
+    // Open API
+    [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
     public IActionResult GetProducts()
     {
-        var products = this._context.Products
+        var products = context.Products
             .Include(p => p.Category)
             .Include(p => p.Supplier)
             .Select(p => new
@@ -51,7 +48,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> GetProduct(int id)
     {
 
-        var product = await this._context.Products
+        var product = await context.Products
             .Include(p => p.Category)
             .Include(p => p.Supplier)
             .Where(p => p.Id == id)
@@ -88,14 +85,14 @@ public class ProductsController : ControllerBase
         }
 
         // ✅ Validate CategoryId tồn tại
-        var categoryExists = await this._context.Categories.AnyAsync(c => c.Id == dto.CategoryId);
+        var categoryExists = await context.Categories.AnyAsync(c => c.Id == dto.CategoryId);
         if (!categoryExists)
         {
             return BadRequest(new { Message = $"Category with id: {dto.CategoryId} not found" });
         }
 
         // ✅ Validate SupplierId tồn tại
-        var supplierExists = await _context.Suppliers.AnyAsync(s => s.Id == dto.SupplierId);
+        var supplierExists = await context.Suppliers.AnyAsync(s => s.Id == dto.SupplierId);
         if (!supplierExists)
         {
             return BadRequest(new { Message = $"Supplier with id: {dto.SupplierId} not found" });
@@ -114,11 +111,11 @@ public class ProductsController : ControllerBase
         };
 
         // ✅ Lưu vào database
-        _context.Products.Add(product);
+        context.Products.Add(product);
 
         try
         {
-            await this._context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
         catch (DbUpdateException ex)
         {
@@ -139,7 +136,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> C1([FromQuery(Name = "minDiscount")] decimal minDiscount)
     {
 
-        var product = await this._context.Products
+        var product = await context.Products
             .Include(p => p.Category)
             .Include(p => p.Supplier)
             .Where(p => p.Discount <= minDiscount)
@@ -173,7 +170,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> C3([FromQuery(Name = "minStock")] int minStock)
     {
 
-        var product = await this._context.Products
+        var product = await context.Products
             .Include(p => p.Category)
             .Include(p => p.Supplier)
             .Where(p => p.Stock <= minStock)
@@ -207,7 +204,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> C4([FromQuery(Name = "minTotalPrice")] int minTotalPrice)
     {
 
-        var product = await this._context.Products
+        var product = await context.Products
             .Include(p => p.Category)
             .Include(p => p.Supplier)
             .Where(p => (p.Price * (100 - p.Discount) / 100) <= minTotalPrice)
