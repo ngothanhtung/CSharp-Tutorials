@@ -78,6 +78,8 @@ public class ProductsController(OnlineShopDataContext context) : ControllerBase
 
     [HttpPost]
     //[Authorize]
+    // RBAC: Role based access control
+    // ACL: post.create, product.update
     [Authorize(Roles = "Administrators,Managers")] 
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto dto)
     {
