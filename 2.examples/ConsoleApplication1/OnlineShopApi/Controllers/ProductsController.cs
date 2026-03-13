@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Data;
 using OnlineShopApi.Models;
@@ -76,6 +77,8 @@ public class ProductsController(OnlineShopDataContext context) : ControllerBase
     }
 
     [HttpPost]
+    //[Authorize]
+    [Authorize(Roles = "Administrators,Managers")] 
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto dto)
     {
         // ModelState tự động validate dựa trên Data Annotations
