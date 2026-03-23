@@ -1,0 +1,35 @@
+﻿@{
+    // REF: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
+
+}
+
+@* 
+    Comment của Razor     
+*@
+
+<!--
+    Comment của HTML
+-->
+
+@model IEnumerable<OnlineShop.Data.Customer>
+
+@{
+    // Viết bằng ngôn ngữ C#
+    var x = 100;
+    var y = 200;
+    var z = x + y;
+}
+
+<h1>Hello About View</h1>
+
+@foreach (var item in Model)
+{
+    <div>@(item.FirstName + " " + item.LastName)</div>
+}
+
+<h2>Hôm nay là: @DateTime.Now.ToLongDateString()</h2>
+
+<p>
+    Kết quả: @z
+</p>
+

@@ -21,7 +21,8 @@ namespace OnlineShopWeb.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            var categories = await _context.Categories.ToListAsync();
+            return View(categories);
         }
 
         // GET: Categories/Details/5
@@ -53,7 +54,7 @@ namespace OnlineShopWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description")] Category category)
+        public async Task<IActionResult> Create([Bind("Name,Description")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +62,8 @@ namespace OnlineShopWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            // Không hợp lệ
             return View(category);
         }
 
