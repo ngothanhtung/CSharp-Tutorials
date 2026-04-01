@@ -155,5 +155,12 @@ namespace OnlineShopWeb.Controllers
         {
             return _context.Categories.Any(e => e.Id == id);
         }
+
+        // Partial View
+        public async Task<IActionResult> CategoriesSideBar()
+        {
+            var categories = await _context.Categories.ToListAsync();
+            return PartialView("~/Views/Home/_CategoriesSideBar.cshtml", categories);
+        }
     }
 }

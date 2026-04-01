@@ -20,6 +20,13 @@
     var z = x + y;
 }
 
+
+
+
+@* <partial name="_HeaderPartial" /> *@
+
+@await Html.PartialAsync("_HeaderPartial")
+
 <h1>Hello About View</h1>
 
 @foreach (var item in Model)
@@ -40,3 +47,5 @@
 <a asp-controller="About" asp-action="Address" >Address</a>
 <br />
 <a asp-route="address">Address (ASP-ROUTE)</a>
+
+<partial name="_FooterPartial" /> 

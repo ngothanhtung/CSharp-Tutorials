@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineShop.Data;
 using OnlineShopWeb.Models;
 using System.Diagnostics;
 
@@ -8,14 +10,20 @@ namespace OnlineShopWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly OnlineShopDataContext _context;
+
+
+
+        public HomeController(ILogger<HomeController> logger, OnlineShopDataContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var categories = await _context.Categories.ToListAsync();
+            return View(categories);
         }
 
         public IActionResult Privacy()
