@@ -3,49 +3,130 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OnlineShopWeb</title>
+    <meta name="robots" content="index,follow">
+
+    <title>@ViewData["Title"] - Online Shop</title>
+    
+    <!-- Favicon -->
+    @* <link rel="shortcut icon" href="~/favicon.ico"> *@
+
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OnlineShopWeb.styles.css" asp-append-version="true" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap/bootstrap.min.css">
+
+    <!-- CSS Global Icons -->
+    <link rel="stylesheet" href="~/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="~/assets/vendor/icon-etlinefont/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="~/assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
+    <link rel="stylesheet" href="~/assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
+    <link rel="stylesheet" href="~/assets/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="~/assets/vendor/animate.css">
+    <link rel="stylesheet" href="~/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="~/assets/vendor/hamburgers/hamburgers.min.css">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="~/assets/css/unify-core.css">
+    <link rel="stylesheet" href="~/assets/css/unify-components.css">
+    <link rel="stylesheet" href="~/assets/css/unify-globals.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="~/assets/css/custom.css">
+    
+    @await RenderSectionAsync("Styles", required: false)
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OnlineShopWeb</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<main>
+    <partial name="_HeaderPartial" />
+    @RenderBody()
+    
+    <partial name="_FooterPartial" />
+</main>
+    
+    
+    <!-- JS Global Compulsory -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - OnlineShopWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="~/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="~/assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+    <script src="~/assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+    <script src="~/assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+    <script src="~/assets/vendor/chosen/chosen.jquery.js"></script>
+    <script src="~/assets/vendor/image-select/src/ImageSelect.jquery.js"></script>
+    <script src="~/assets/vendor/masonry/dist/masonry.pkgd.min.js"></script>
+    <script src="~/assets/vendor/imagesloaded/imagesloaded.js"></script>
+    <script src="~/assets/vendor/slick-carousel/slick/slick.js"></script>
+
+    <!-- JS Unify -->
+    <script src="~/assets/js/hs.core.js"></script>
+    <script src="~/assets/js/components/hs.header.js"></script>
+    <script src="~/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="~/assets/js/components/hs.scroll-nav.js"></script>
+    <script src="~/assets/js/components/hs.go-to.js"></script>
+    <script src="~/assets/js/components/hs.sticky-block.js"></script>
+    <script src="~/assets/js/helpers/hs.height-calc.js"></script>
+    <script src="~/assets/js/components/hs.carousel.js"></script>
+
+    <!-- JS Custom -->
+    <script src="~/assets/js/custom.js"></script>
+
+    
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // Header
+            $.HSCore.components.HSHeader.init($('#js-header'));
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // initialization of HSMegaMenu plugin
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                pageContainer: $('.container'),
+                breakpoint: 991
+            });
+
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
+
+            $.HSCore.helpers.HSHeightCalc.init();
+        });
+
+        $(window).on('load', function () {
+            // initialization of HSScrollNav
+            $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+            duration: 700,
+            over: $('.u-secondary-navigation')
+        });
+
+        // initialization of masonry.js
+        $('.masonry-grid').imagesLoaded().then(function () {
+            $('.masonry-grid').masonry({
+                // options
+                columnWidth: '.masonry-grid-sizer',
+                itemSelector: '.masonry-grid-item',
+                percentPosition: true
+            });
+        });
+
+        // initialization of sticky blocks
+        $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+        });
+    </script>
+
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
